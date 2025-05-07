@@ -220,3 +220,23 @@ Received Import Request.
 Start importing Assets/Scripts using Guid(5801ddea6c349e425a47a04a8112694e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a1a1ed41a8cf7cecaec379fc15879622') in 0.007414293 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3712 unused Assets / (1.1 MB). Loaded Objects now: 4210.
+Memory consumption went from 74.6 MB to 73.5 MB.
+Total: 8.081727 ms (FindLiveObjects: 0.660692 ms CreateObjectMapping: 0.477467 ms MarkObjects: 5.663573 ms  DeleteObjects: 1.279053 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3712 unused Assets / (1.5 MB). Loaded Objects now: 4210.
+Memory consumption went from 74.7 MB to 73.2 MB.
+Total: 9.377652 ms (FindLiveObjects: 0.409780 ms CreateObjectMapping: 0.289534 ms MarkObjects: 7.122835 ms  DeleteObjects: 1.552688 ms)
+
+Prepare: number of updated asset objects reloaded= 0

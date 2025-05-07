@@ -1,14 +1,16 @@
+// 개선된 HandReceiver.cs
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Threading;
 
 public class HandReceiver : MonoBehaviour
 {
     UdpClient udpClient;
     public int port = 5055;
-    public GameObject linePrefab; // 프리팹으로 생성
+    public GameObject linePrefab;
 
     private List<LineRenderer> lines = new List<LineRenderer>();
     private int[][] connections = new int[][]
@@ -20,53 +22,75 @@ public class HandReceiver : MonoBehaviour
         new int[]{0,17}, new int[]{17,18}, new int[]{18,19}, new int[]{19,20},
     };
 
+    private float scaleFactor = 5.0f;
+    private List<Vector3> lastValidPoints = new List<Vector3>();
+
     void Start()
     {
         udpClient = new UdpClient(port);
         udpClient.BeginReceive(ReceiveCallback, null);
 
-        // LineRenderer 미리 생성
         for (int i = 0; i < connections.Length; i++)
         {
             var obj = Instantiate(linePrefab);
             var lr = obj.GetComponent<LineRenderer>();
             lr.positionCount = 2;
+            lr.enabled = false;
             lines.Add(lr);
         }
     }
 
     void ReceiveCallback(IAsyncResult ar)
     {
-        IPEndPoint ep = new IPEndPoint(IPAddress.Any, port);
-        byte[] data = udpClient.EndReceive(ar, ref ep);
-        string json = Encoding.UTF8.GetString(data);
+        try
+        {
+            IPEndPoint ep = new IPEndPoint(IPAddress.Any, port);
+            byte[] data = udpClient.EndReceive(ar, ref ep);
+            string json = Encoding.UTF8.GetString(data);
 
-        List<Vector3> handPoints = ParseHandData(json);
+            List<Vector3> handPoints = ParseHandData(json);
+            lastValidPoints = handPoints;
 
-        // Unity 메인 스레드에서 실행되도록 큐 사용 (간단 구현)
-        UnityMainThreadDispatcher.Instance().Enqueue(() => DrawLines(handPoints));
-
-        udpClient.BeginReceive(ReceiveCallback, null);
+            UnityMainThreadDispatcher.Instance().Enqueue(() => DrawLines(handPoints));
+        }
+        catch (SocketException ex)
+        {
+            Debug.LogWarning("UDP receive error: " + ex.Message);
+        }
+        finally
+        {
+            udpClient.BeginReceive(ReceiveCallback, null);
+        }
     }
 
     void DrawLines(List<Vector3> points)
     {
-        if (points.Count != 21) return;
-
-        for (int i = 0; i < connections.Length; i++)
+        bool valid = points != null && points.Count == 21;
+        for (int i = 0; i < lines.Count; i++)
         {
+            lines[i].enabled = valid;
+            if (!valid) continue;
+
             int start = connections[i][0];
             int end = connections[i][1];
 
-            lines[i].SetPosition(0, points[start] * 5);  // 스케일 조정
-            lines[i].SetPosition(1, points[end] * 5);
+            lines[i].SetPosition(0, points[start] * scaleFactor);
+            lines[i].SetPosition(1, points[end] * scaleFactor);
         }
     }
 
     List<Vector3> ParseHandData(string json)
     {
-        return JsonUtility.FromJson<Wrapper>("{\"points\":" + json + "}").points.ConvertAll(
-            p => new Vector3(p.x, -p.y, -p.z)); // y, z 방향 뒤집어서 맞춤
+        try
+        {
+            var wrapper = JsonUtility.FromJson<Wrapper>("{\"points\":" + json + "}");
+            return wrapper.points.ConvertAll(p => new Vector3(p.x, -p.y, -p.z));
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to parse hand data: " + ex.Message);
+            return null;
+        }
     }
 
     [System.Serializable]
