@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 875.2
     height: 758.4
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -1185,11 +1185,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.10316233, y: 0.8903831, z: -0.25161412, w: -0.36505863}
     speed: 2
-    m_Value: {x: -0.10272408, y: 0.8906835, z: -0.25054523, w: -0.36518177}
+    m_Value: {x: -0.10316224, y: 0.8903823, z: -0.2516139, w: -0.36505827}
   m_Size:
     m_Target: 7.4656487
     speed: 2
-    m_Value: 7.8174334
+    m_Value: 7.4656487
   m_Ortho:
     m_Target: 0
     speed: 2
