@@ -1,10 +1,11 @@
-// 개선된 HandReceiver.cs
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Threading;
+using PimDeWitte.UnityMainThreadDispatcher;
 
 public class HandReceiver : MonoBehaviour
 {
