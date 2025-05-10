@@ -1,0 +1,39 @@
+# --- Unity 관련 ---
+창의체험전/Library/
+창의체험전/Temp/
+창의체험전/Obj/
+창의체험전/Build/
+창의체험전/Logs/
+
+
+# Visual Studio 관련
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.unityproj
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# Unity 빌드 설정 관련
+*.pidb
+*.suo
+*.userprefs
+*.booproj
+
+# 기타 불필요 파일
+*.swp
+*.tmp
+*.bak
+*.orig
+*.old
+
+# Rider 관련 (JetBrains IDE)
+.idea/
+*.sln.iml
+
+# Crash Reports
+sysinfo.txt
