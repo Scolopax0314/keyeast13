@@ -1,9 +1,9 @@
 # --- Unity 관련 ---
-**/Library/
-**/Temp/
-**/Obj/
-**/Build/
-**/Logs/
+창의체험전/Library/
+창의체험전/Temp/
+창의체험전/Obj/
+창의체험전/Build/
+창의체험전/Logs/
 
 
 # Visual Studio 관련
