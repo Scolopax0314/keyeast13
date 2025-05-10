@@ -1,11 +1,10 @@
 # --- Unity 관련 ---
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Mm]emoryCaptures/
+*/Library/
+*/Temp/
+*/Obj/
+*/Build/
+*/Logs/
+
 
 # Visual Studio 관련
 .vs/
