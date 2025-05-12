@@ -12,7 +12,10 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((HOST, PORT))
 sock.listen(1)
 conn, _ = sock.accept()
-cap = cv2.VideoCapture(0)
+for idx in [2,1,0]:
+    cap = cv2.VideoCapture(idx)
+    if cap.isOpened():
+        break
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
