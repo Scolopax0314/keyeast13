@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 199965661}
   - component: {fileID: 199965660}
   - component: {fileID: 199965659}
+  - component: {fileID: 199965662}
   m_Layer: 0
   m_Name: Cube (6)
   m_TagString: Untagged
@@ -596,6 +597,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199965657}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &199965662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199965657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSound: {fileID: 8300000, guid: d1d1e07b22170434c9dcd3cb32844313, type: 3}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &345214134
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +623,7 @@ GameObject:
   - component: {fileID: 345214138}
   - component: {fileID: 345214137}
   - component: {fileID: 345214136}
+  - component: {fileID: 345214139}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -704,6 +720,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345214134}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &345214139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345214134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSound: {fileID: 8300000, guid: 2e9877bb75651f548a7d2622bd22679e, type: 3}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &435556683
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: 4f2a8e155acf9c34c9c31c5a6dd6fc11, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &565880034
 GameObject:
@@ -1307,7 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: f4bfd81c32b8fae4e88963b7071d87f3, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &705507993
 GameObject:
@@ -1527,7 +1557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: eeac37882a215c24eb9f9fc638f3ee05, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &947138071
 GameObject:
@@ -1650,7 +1680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: 91ccf4b575051b143939f6ede5cfd156, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &963194225
 GameObject:
@@ -2005,7 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: 2bd29140838e7114985fd1578bcf9719, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1137068465
 GameObject:
@@ -2128,7 +2158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: 7efb49d8fa96d964788d2daee4006aac, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1180918824
 GameObject:
@@ -2908,6 +2938,7 @@ GameObject:
   - component: {fileID: 1492710008}
   - component: {fileID: 1492710007}
   - component: {fileID: 1492710006}
+  - component: {fileID: 1492710009}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -3004,6 +3035,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492710004}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1492710009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492710004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSound: {fileID: 8300000, guid: 779482c05997da24b9b4850ef2fb18c7, type: 3}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1556976242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,7 +3170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteSound: {fileID: 0}
+  noteSound: {fileID: 8300000, guid: 748c3faf2134f8f4c9a47ec0d6defd95, type: 3}
   pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1630183412
 GameObject:
@@ -3139,6 +3184,7 @@ GameObject:
   - component: {fileID: 1630183416}
   - component: {fileID: 1630183415}
   - component: {fileID: 1630183414}
+  - component: {fileID: 1630183417}
   m_Layer: 0
   m_Name: Cube (07)
   m_TagString: Untagged
@@ -3235,6 +3281,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630183412}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1630183417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630183412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSound: {fileID: 8300000, guid: fbf4dfcfad2fbce439aace315ae98643, type: 3}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1688099417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,6 +3892,7 @@ GameObject:
   - component: {fileID: 1898830167}
   - component: {fileID: 1898830166}
   - component: {fileID: 1898830165}
+  - component: {fileID: 1898830168}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -3928,6 +3989,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898830163}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1898830168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898830163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a028181b07c4824bb188334f3df93db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteSound: {fileID: 8300000, guid: caa9e5f1258ad0f439a2b8325e2df52d, type: 3}
+  pressedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &1949084091
 GameObject:
   m_ObjectHideFlags: 0
