@@ -48,6 +48,16 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.render-pipelines.universal@17.1.0": {
+      "name": "com.unity.render-pipelines.universal",
+      "displayName": "Universal Render Pipeline",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.render-pipelines.universal@89399b10acbb",
+      "fingerprint": "89399b10acbb1dcc5058f0df388e95ee51332d4c",
+      "editorCompatibility": "6000.1.0a1",
+      "version": "17.1.0",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.timeline@1.8.7": {
       "name": "com.unity.timeline",
       "displayName": "Timeline",
@@ -350,6 +360,36 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.render-pipelines.core@17.1.0": {
+      "name": "com.unity.render-pipelines.core",
+      "displayName": "Scriptable Render Pipeline Core",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.render-pipelines.core@a7356ab905fd",
+      "fingerprint": "a7356ab905fde50db762291e447e9375649254ba",
+      "editorCompatibility": "6000.1.0a1",
+      "version": "17.1.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.shadergraph@17.1.0": {
+      "name": "com.unity.shadergraph",
+      "displayName": "Shader Graph",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.shadergraph@26dc5ae27e7d",
+      "fingerprint": "26dc5ae27e7d8949b4e95045bf189b8733da88ee",
+      "editorCompatibility": "6000.1.0a1",
+      "version": "17.1.0",
+      "source": "builtin",
+      "testable": false
+    },
+    "com.unity.render-pipelines.universal-config@17.0.3": {
+      "name": "com.unity.render-pipelines.universal-config",
+      "displayName": "Universal Render Pipeline Config",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.render-pipelines.universal-config@6af1487fecff",
+      "fingerprint": "6af1487fecff04dbba58e29eb0f241dfd8592c96",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.ide.visualstudio@2.0.23": {
       "name": "com.unity.ide.visualstudio",
       "displayName": "Visual Studio Editor",
@@ -410,6 +450,56 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.searcher@4.9.3": {
+      "name": "com.unity.searcher",
+      "displayName": "Searcher",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.searcher@1e17ce91558d",
+      "fingerprint": "1e17ce91558d1d9127554adc03d275f39a7466a2",
+      "editorCompatibility": "2019.1.0a1",
+      "version": "4.9.3",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.burst@1.8.21": {
+      "name": "com.unity.burst",
+      "displayName": "Burst",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.burst@59eb6f11d242",
+      "fingerprint": "59eb6f11d2422f95682320d9daa3e79fdb076744",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "1.8.21",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.mathematics@1.3.2": {
+      "name": "com.unity.mathematics",
+      "displayName": "Mathematics",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.mathematics@8017b507cc74",
+      "fingerprint": "8017b507cc74bf0a1dd14b18aa860569f807314d",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "1.3.2",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.collections@2.5.1": {
+      "name": "com.unity.collections",
+      "displayName": "Collections",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.collections@56bff8827a7e",
+      "fingerprint": "56bff8827a7ef6d44fcee4f36e558a74da89c1a0",
+      "editorCompatibility": "2022.3.11f1",
+      "version": "2.5.1",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.rendering.light-transport@1.0.1": {
+      "name": "com.unity.rendering.light-transport",
+      "displayName": "Unity Light Transport Library",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.rendering.light-transport@56c10358ff14",
+      "fingerprint": "56c10358ff14eb57febd7c4f20246fc73173d069",
+      "editorCompatibility": "2023.3.0b1",
+      "version": "1.0.1",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.settings-manager@2.1.0": {
       "name": "com.unity.settings-manager",
       "displayName": "Settings Manager",
@@ -428,6 +518,26 @@
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",
       "source": "builtin",
+      "testable": false
+    },
+    "com.unity.nuget.mono-cecil@1.11.4": {
+      "name": "com.unity.nuget.mono-cecil",
+      "displayName": "Mono Cecil",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.nuget.mono-cecil@d6f9955a5d5f",
+      "fingerprint": "d6f9955a5d5f84d45442ff1ad0fb694cc6e2fd62",
+      "editorCompatibility": "2018.4.0a1",
+      "version": "1.11.4",
+      "source": "registry",
+      "testable": false
+    },
+    "com.unity.test-framework.performance@3.1.0": {
+      "name": "com.unity.test-framework.performance",
+      "displayName": "Performance testing API",
+      "resolvedPath": "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\창의체험전\\Library\\PackageCache\\com.unity.test-framework.performance@92d1d09a72ed",
+      "fingerprint": "92d1d09a72ed696fa23fd76c675b29d211664b50",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "3.1.0",
+      "source": "registry",
       "testable": false
     }
   }

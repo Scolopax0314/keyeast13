@@ -34,7 +34,7 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(x, 10f, 0);
         GameObject note = Instantiate(notePrefab, spawnPos, Quaternion.identity);
 
-        note.transform.localScale = new Vector3(0.8f, duration * noteSpeed, 0.8f);
+        note.transform.localScale = new Vector3(0.8f, duration * noteSpeed, 0.2f);
         note.AddComponent<FallDown>().speed = noteSpeed;
     }
 
