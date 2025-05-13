@@ -70,7 +70,13 @@ TcpClient client;
             Debug.LogError("Socket error: " + e.Message);
         }
     }
+    float GetBoneLength(Transform a, Transform b)
+    {
+        return Vector3.Distance(a.position, b.position);
+    }
 
+    bool scaleFactorInitialized = false;
+    float scaleFactor = 4f;
     void Update()
     {
         lineRenderer.positionCount = bonePairs.Length * 2;
@@ -81,12 +87,24 @@ TcpClient client;
             {
                 Landmark[] landmarks = JsonHelper.FromJson<Landmark>(latestJson);
 
+                if (!scaleFactorInitialized)
+                {
+                     float modelLength = GetBoneLength(boneTransforms[0], boneTransforms[8]);
+                    float landmarkLength = Vector3.Distance(
+                        new Vector3(landmarks[0].x, landmarks[0].y, landmarks[0].z),
+                        new Vector3(landmarks[8].x, landmarks[8].y, landmarks[8].z)
+                    );
+                    scaleFactor = modelLength / landmarkLength;
+                    scaleFactorInitialized = true;
+                        }
+
                 for (int i = 0; i < landmarks.Length; i++)
                 {
+                    Vector3 modelOffset = boneTransforms[0].position;
                     Vector3 pos = new Vector3(
-                        (landmarks[i].x - 0.5f) * 10f, 
-                        (0.5f - landmarks[i].y) * 10f,
-                        -landmarks[i].z * 10f);
+                        (landmarks[i].x - 0.5f) * scaleFactor, 
+                        (0.5f - landmarks[i].y) * scaleFactor,
+                        -landmarks[i].z * scaleFactor);
                     targetObjects[i].transform.position = pos;
 
                     if (boneTransforms[i] != null)
