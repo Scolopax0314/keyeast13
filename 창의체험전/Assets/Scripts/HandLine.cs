@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class HandLines : MonoBehaviour
 {
-[SerializeField] GameObject targetPrefab;
-[SerializeField] LineRenderer lineRenderer;
-[SerializeField] Transform[] boneTransforms = new Transform[21];
+    [SerializeField] GameObject targetPrefab;
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Transform[] boneTransforms = new Transform[21];
 
-TcpClient client;
+    TcpClient client;
     StreamReader reader;
     Thread thread;
     string latestJson;
@@ -19,29 +19,32 @@ TcpClient client;
 
     readonly Vector2Int[] bonePairs = new Vector2Int[]
     {
-    new(0, 1), new(1, 2), new(2, 3), new(3, 4),
-    new(0, 5), new(5, 6), new(6, 7), new(7, 8),
-    new(0, 17), new(17, 18), new(18, 19), new(19, 20),
-    new(5, 9), new(9, 13), new(13, 17),
-    new(9, 10), new(10, 11), new(11, 12),
-    new(13, 14), new(14, 15), new(15, 16)
+        new(0, 1), new(1, 2), new(2, 3), new(3, 4),
+        new(0, 5), new(5, 6), new(6, 7), new(7, 8),
+        new(0, 17), new(17, 18), new(18, 19), new(19, 20),
+        new(5, 9), new(9, 13), new(13, 17),
+        new(9, 10), new(10, 11), new(11, 12),
+        new(13, 14), new(14, 15), new(15, 16)
     };
+
+    bool scaleFactorInitialized = false;
+    float scaleFactor = 4f;
+
+    Vector3 wristWorldOrigin;
+    bool originInitialized = false;
 
     void Start()
     {
-        // ���� ���� ������ ����
         thread = new Thread(ConnectToServer);
         thread.IsBackground = true;
         thread.Start();
 
-        // �հ��� ����Ʈ ������Ʈ ����
         for (int i = 0; i < targetObjects.Length; i++)
         {
             targetObjects[i] = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity);
             targetObjects[i].name = $"Landmark_{i}";
         }
 
-        // ���η����� ����
         lineRenderer.positionCount = bonePairs.Length * 2;
         lineRenderer.useWorldSpace = true;
 
@@ -70,16 +73,16 @@ TcpClient client;
             Debug.LogError("Socket error: " + e.Message);
         }
     }
-    float GetBoneLength(Transform a, Transform b)
-    {
-        return Vector3.Distance(a.position, b.position);
-    }
 
-    bool scaleFactorInitialized = false;
-    float scaleFactor = 4f;
     void Update()
     {
         lineRenderer.positionCount = bonePairs.Length * 2;
+
+        if (!originInitialized && boneTransforms[0] != null)
+        {
+            wristWorldOrigin = boneTransforms[0].position;
+            originInitialized = true;
+        }
 
         if (!string.IsNullOrEmpty(latestJson))
         {
@@ -89,22 +92,13 @@ TcpClient client;
 
                 if (!scaleFactorInitialized)
                 {
-                     float modelLength = GetBoneLength(boneTransforms[0], boneTransforms[8]);
-                    float landmarkLength = Vector3.Distance(
-                        new Vector3(landmarks[0].x, landmarks[0].y, landmarks[0].z),
-                        new Vector3(landmarks[8].x, landmarks[8].y, landmarks[8].z)
-                    );
-                    scaleFactor = modelLength / landmarkLength;
+                    scaleFactor = ComputeScaleFactor(landmarks);
                     scaleFactorInitialized = true;
-                        }
+                }
 
                 for (int i = 0; i < landmarks.Length; i++)
                 {
-                    Vector3 modelOffset = boneTransforms[0].position;
-                    Vector3 pos = new Vector3(
-                        (landmarks[i].x - 0.5f) * scaleFactor, 
-                        (0.5f - landmarks[i].y) * scaleFactor,
-                        -landmarks[i].z * scaleFactor);
+                    Vector3 pos = ConvertLandmarkToWorld(landmarks[i]);
                     targetObjects[i].transform.position = pos;
 
                     if (boneTransforms[i] != null)
@@ -179,8 +173,48 @@ TcpClient client;
         }
     }
 
+    float GetBoneLength(Transform a, Transform b)
+    {
+        return Vector3.Distance(a.position, b.position);
+    }
 
-    // Landmark Ŭ���� ���� (x, y, z ���ԵǾ�� ��)
+    float ComputeScaleFactor(Landmark[] landmarks)
+    {
+        Vector2Int[] scalePairs = new Vector2Int[]
+        {
+            new(0, 5),  // Wrist to Index base
+            new(0, 17), // Wrist to Pinky base
+            new(5, 8),  // Index finger length
+            new(9, 12), // Middle finger length
+        };
+
+        float totalModelLength = 0f;
+        float totalLandmarkLength = 0f;
+
+        foreach (var pair in scalePairs)
+        {
+            float modelLength = GetBoneLength(boneTransforms[pair.x], boneTransforms[pair.y]);
+
+            Vector3 a = new Vector3(landmarks[pair.x].x, landmarks[pair.x].y, landmarks[pair.x].z);
+            Vector3 b = new Vector3(landmarks[pair.y].x, landmarks[pair.y].y, landmarks[pair.y].z);
+            float landmarkLength = Vector3.Distance(a, b);
+
+            totalModelLength += modelLength;
+            totalLandmarkLength += landmarkLength;
+        }
+
+        return totalModelLength / totalLandmarkLength;
+    }
+
+    Vector3 ConvertLandmarkToWorld(Landmark lm)
+    {
+        return new Vector3(
+            (lm.x - 0.5f) * scaleFactor + wristWorldOrigin.x,
+            (0.5f - lm.y) * scaleFactor + wristWorldOrigin.y,
+            -lm.z * scaleFactor + wristWorldOrigin.z
+        );
+    }
+
     [Serializable]
     public class Landmark
     {
@@ -189,7 +223,6 @@ TcpClient client;
         public float z;
     }
 
-    // JSON �迭 ������ȭ �����
     public static class JsonHelper
     {
         public static T[] FromJson<T>(string json)
