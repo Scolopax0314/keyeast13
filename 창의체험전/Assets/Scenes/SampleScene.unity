@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560255257436b0a43b4f44844d6dcfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFileName: example.mid
+  midiFileName: unity.mid
   noteSpawner: {fileID: 576551733}
 --- !u!4 &288431710
 Transform:
