@@ -8,6 +8,7 @@ public class HandLines : MonoBehaviour
 {
 [SerializeField] GameObject targetPrefab;
 [SerializeField] LineRenderer lineRenderer;
+[SerializeField] Transform[] boneTransforms = new Transform[21];
 
 TcpClient client;
     StreamReader reader;
@@ -28,21 +29,23 @@ TcpClient client;
 
     void Start()
     {
-        // ¼­¹ö ¿¬°á ¾²·¹µå ½ÃÀÛ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         thread = new Thread(ConnectToServer);
         thread.IsBackground = true;
         thread.Start();
 
-        // ¼Õ°¡¶ô Æ÷ÀÎÆ® ¿ÀºêÁ§Æ® »ý¼º
+        // ï¿½Õ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < targetObjects.Length; i++)
         {
             targetObjects[i] = Instantiate(targetPrefab, Vector3.zero, Quaternion.identity);
             targetObjects[i].name = $"Landmark_{i}";
         }
 
-        // ¶óÀÎ·»´õ·¯ ¼¼ÆÃ
+        // ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         lineRenderer.positionCount = bonePairs.Length * 2;
         lineRenderer.useWorldSpace = true;
+
+        AutoAssignBones();
     }
 
     void ConnectToServer()
@@ -80,8 +83,16 @@ TcpClient client;
 
                 for (int i = 0; i < landmarks.Length; i++)
                 {
-                    Vector3 pos = new Vector3((landmarks[i].x - 0.5f) * 10f, (0.5f - landmarks[i].y) * 10f, 0);
+                    Vector3 pos = new Vector3(
+                        (landmarks[i].x - 0.5f) * 10f, 
+                        (0.5f - landmarks[i].y) * 10f,
+                        -landmarks[i].z * 10f);
                     targetObjects[i].transform.position = pos;
+
+                    if (boneTransforms[i] != null)
+                    {
+                        boneTransforms[i].position = pos;
+                    }
                 }
 
                 for (int i = 0; i < bonePairs.Length; i++)
@@ -105,7 +116,53 @@ TcpClient client;
         client?.Close();
     }
 
-    // Landmark Å¬·¡½º Á¤ÀÇ (x, y, z Æ÷ÇÔµÇ¾î¾ß ÇÔ)
+    void AutoAssignBones()
+    {
+        string[] boneNames = new string[]
+        {
+            "hand.R",                    // 0: WRIST
+            "thumb_01.R",               // 1: THUMB_CMC
+            "thumb_02.R",               // 2: THUMB_MCP
+            "thumb_03.R",               // 3: THUMB_IP
+            "thumb_03.R_end",           // 4: THUMB_TIP
+
+            "index_01.R",               // 5: INDEX_MCP
+            "index_02.R",               // 6: INDEX_PIP
+            "index_03.R",               // 7: INDEX_DIP
+            "index_03.R_end",           // 8: INDEX_TIP
+
+            "middle_01.R",              // 9: MIDDLE_MCP
+            "middle_02.R",              // 10: MIDDLE_PIP
+            "middle_03.R",              // 11: MIDDLE_DIP
+            "middle_03.R_end",          // 12: MIDDLE_TIP
+
+            "ring_01.R",                // 13: RING_MCP
+            "ring_02.R",                // 14: RING_PIP
+            "ring_03.R",                // 15: RING_DIP
+            "ring_03.R_end",            // 16: RING_TIP
+
+            "pinky_01.R",               // 17: PINKY_MCP
+            "pinky_02.R",               // 18: PINKY_PIP
+            "pinky_03.R",               // 19: PINKY_DIP
+            "pinky_03.R_end"            // 20: PINKY_TIP
+        };
+
+        for (int i = 0; i < boneNames.Length; i++)
+        {
+            GameObject found = GameObject.Find(boneNames[i]);
+            if (found != null)
+            {
+                boneTransforms[i] = found.transform;
+            }
+            else
+            {
+                Debug.LogWarning($"Bone not found: {boneNames[i]}");
+            }
+        }
+    }
+
+
+    // Landmark Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (x, y, z ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ï¿½ ï¿½ï¿½)
     [Serializable]
     public class Landmark
     {
@@ -114,7 +171,7 @@ TcpClient client;
         public float z;
     }
 
-    // JSON ¹è¿­ ¿ªÁ÷·ÄÈ­ µµ¿ì¹Ì
+    // JSON ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½
     public static class JsonHelper
     {
         public static T[] FromJson<T>(string json)
