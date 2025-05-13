@@ -11,4 +11,8 @@ public class FallDown : MonoBehaviour
         if (transform.position.y < -5f)
             Destroy(gameObject);
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
