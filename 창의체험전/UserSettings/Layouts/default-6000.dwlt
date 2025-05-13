@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 90
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -363,7 +363,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets
+=======
+    - Assets/SCripts
+>>>>>>> test2
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -373,16 +377,26 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
+<<<<<<< HEAD
   - Assets
+=======
+  - Assets/SCripts
+>>>>>>> test2
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\ofkjo\\OneDrive\\Desktop\\keyeast13\\keyeast13\\\uCC3D\uC758\uCCB4\uD5D8\uC804"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 4.4000244}
+<<<<<<< HEAD
     m_SelectedIDs: aa890000
     m_LastClickedID: 35242
     m_ExpandedIDs: 00000000aa89000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: ba890000
+    m_LastClickedID: 35258
+    m_ExpandedIDs: 000000006289000000ca9a3bffffff7f
+>>>>>>> test2
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -411,7 +425,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000aa890000
+=======
+    m_ExpandedIDs: 0000000062890000
+>>>>>>> test2
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -439,7 +457,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -557,9 +575,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 32d4ffff
+=======
+      m_SelectedIDs: aa2e0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 06d6ffffc68700007c880000
+>>>>>>> test2
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1135,9 +1159,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -7.485721, y: -103.55418, z: 103.24725}
+    m_Target: {x: 11.571496, y: -101.973885, z: 106.702705}
     speed: 2
-    m_Value: {x: -7.485721, y: -103.55418, z: 103.24725}
+    m_Value: {x: 11.571496, y: -101.973885, z: 106.702705}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1183,13 +1207,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.41781467, y: -0.036773704, z: 0.01692309, w: 0.9076462}
+    m_Target: {x: 0.39247155, y: 0.044404782, z: -0.018978912, w: 0.9185133}
     speed: 2
-    m_Value: {x: 0.41780853, y: -0.036773164, z: 0.016922843, w: 0.9076329}
+    m_Value: {x: 0.39246517, y: 0.044404063, z: -0.018978605, w: 0.9184984}
   m_Size:
-    m_Target: 81.92047
+    m_Target: 85.66465
     speed: 2
-    m_Value: 81.92047
+    m_Value: 85.66465
   m_Ortho:
     m_Target: 0
     speed: 2
