@@ -26,8 +26,6 @@ public class HandLines : MonoBehaviour
         new(9, 10), new(10, 11), new(11, 12),
         new(13, 14), new(14, 15), new(15, 16)
     };
-
-    bool scaleFactorInitialized = false;
     float scaleFactor = 4f;
 
     Vector3 wristWorldOrigin;
@@ -133,11 +131,7 @@ public class HandLines : MonoBehaviour
             {
                 Landmark[] landmarks = JsonHelper.FromJson<Landmark>(latestJson);
 
-                if (!scaleFactorInitialized)
-                {
-                    scaleFactor = ComputeScaleFactor(landmarks);
-                    scaleFactorInitialized = true;
-                }
+                scaleFactor = ComputeScaleFactor(landmarks);
 
                 for (int i = 0; i < landmarks.Length; i++)
                 {
