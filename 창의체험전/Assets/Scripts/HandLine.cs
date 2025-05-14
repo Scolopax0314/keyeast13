@@ -74,10 +74,53 @@ public class HandLines : MonoBehaviour
         }
     }
 
+    void AutoAssignBones()
+    {
+        string[] boneNames = new string[]
+        {
+            "hand.R",                    // 0: WRIST
+            "thumb_01.R",               // 1: THUMB_CMC
+            "thumb_02.R",               // 2: THUMB_MCP
+            "thumb_03.R",               // 3: THUMB_IP
+            "thumb_03.R_end",           // 4: THUMB_TIP
+
+            "index_01.R",               // 5: INDEX_MCP
+            "index_02.R",               // 6: INDEX_PIP
+            "index_03.R",               // 7: INDEX_DIP
+            "index_03.R_end",           // 8: INDEX_TIP
+
+            "middle_01.R",              // 9: MIDDLE_MCP
+            "middle_02.R",              // 10: MIDDLE_PIP
+            "middle_03.R",              // 11: MIDDLE_DIP
+            "middle_03.R_end",          // 12: MIDDLE_TIP
+
+            "ring_01.R",                // 13: RING_MCP
+            "ring_02.R",                // 14: RING_PIP
+            "ring_03.R",                // 15: RING_DIP
+            "ring_03.R_end",            // 16: RING_TIP
+
+            "pinky_01.R",               // 17: PINKY_MCP
+            "pinky_02.R",               // 18: PINKY_PIP
+            "pinky_03.R",               // 19: PINKY_DIP
+            "pinky_03.R_end"            // 20: PINKY_TIP
+        };
+
+        for (int i = 0; i < boneNames.Length; i++)
+        {
+            GameObject found = GameObject.Find(boneNames[i]);
+            if (found != null)
+            {
+                boneTransforms[i] = found.transform;
+            }
+            else
+            {
+                Debug.LogWarning($"Bone not found: {boneNames[i]}");
+            }
+        }
+    }
+
     void Update()
     {
-        lineRenderer.positionCount = bonePairs.Length * 2;
-
         if (!originInitialized && boneTransforms[0] != null)
         {
             wristWorldOrigin = boneTransforms[0].position;
@@ -128,56 +171,6 @@ public class HandLines : MonoBehaviour
         client?.Close();
     }
 
-    void AutoAssignBones()
-    {
-        string[] boneNames = new string[]
-        {
-            "hand.R",                    // 0: WRIST
-            "thumb_01.R",               // 1: THUMB_CMC
-            "thumb_02.R",               // 2: THUMB_MCP
-            "thumb_03.R",               // 3: THUMB_IP
-            "thumb_03.R_end",           // 4: THUMB_TIP
-
-            "index_01.R",               // 5: INDEX_MCP
-            "index_02.R",               // 6: INDEX_PIP
-            "index_03.R",               // 7: INDEX_DIP
-            "index_03.R_end",           // 8: INDEX_TIP
-
-            "middle_01.R",              // 9: MIDDLE_MCP
-            "middle_02.R",              // 10: MIDDLE_PIP
-            "middle_03.R",              // 11: MIDDLE_DIP
-            "middle_03.R_end",          // 12: MIDDLE_TIP
-
-            "ring_01.R",                // 13: RING_MCP
-            "ring_02.R",                // 14: RING_PIP
-            "ring_03.R",                // 15: RING_DIP
-            "ring_03.R_end",            // 16: RING_TIP
-
-            "pinky_01.R",               // 17: PINKY_MCP
-            "pinky_02.R",               // 18: PINKY_PIP
-            "pinky_03.R",               // 19: PINKY_DIP
-            "pinky_03.R_end"            // 20: PINKY_TIP
-        };
-
-        for (int i = 0; i < boneNames.Length; i++)
-        {
-            GameObject found = GameObject.Find(boneNames[i]);
-            if (found != null)
-            {
-                boneTransforms[i] = found.transform;
-            }
-            else
-            {
-                Debug.LogWarning($"Bone not found: {boneNames[i]}");
-            }
-        }
-    }
-
-    float GetBoneLength(Transform a, Transform b)
-    {
-        return Vector3.Distance(a.position, b.position);
-    }
-
     float ComputeScaleFactor(Landmark[] landmarks)
     {
         Vector2Int[] scalePairs = new Vector2Int[]
@@ -193,7 +186,7 @@ public class HandLines : MonoBehaviour
 
         foreach (var pair in scalePairs)
         {
-            float modelLength = GetBoneLength(boneTransforms[pair.x], boneTransforms[pair.y]);
+            float modelLength = Vector3.Distance(boneTransforms[pair.x].position, boneTransforms[pair.y].position);
 
             Vector3 a = new Vector3(landmarks[pair.x].x, landmarks[pair.x].y, landmarks[pair.x].z);
             Vector3 b = new Vector3(landmarks[pair.y].x, landmarks[pair.y].y, landmarks[pair.y].z);
