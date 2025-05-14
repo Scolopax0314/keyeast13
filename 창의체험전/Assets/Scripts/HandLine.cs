@@ -10,6 +10,9 @@ public class HandLines : MonoBehaviour
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Transform[] boneTransforms = new Transform[21];
 
+    private Animator animator;
+    public Transform rightHandTarget;
+
     TcpClient client;
     StreamReader reader;
     Thread thread;
@@ -33,6 +36,7 @@ public class HandLines : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         thread = new Thread(ConnectToServer);
         thread.IsBackground = true;
         thread.Start();
@@ -117,6 +121,19 @@ public class HandLines : MonoBehaviour
         }
     }
 
+    void OnAnimatorIK(int layerIndex)
+    {
+        if (animator)
+        {
+            if (rightHandTarget != null)
+            {
+                animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandTarget.position); // 위치
+                animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandTarget.rotation); // 회전
+                animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1); // IK 강도
+                animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1); // 회전 강도
+            }
+        }
+    }
     void Update()
     {
         if (!originInitialized && boneTransforms[0] != null)
@@ -142,6 +159,11 @@ public class HandLines : MonoBehaviour
                     {
                         boneTransforms[i].position = pos;
                     }
+                }
+
+                if (rightHandTarget != null)
+                {
+                    rightHandTarget.position = targetObjects[4].transform.position;
                 }
 
                 for (int i = 0; i < bonePairs.Length; i++)

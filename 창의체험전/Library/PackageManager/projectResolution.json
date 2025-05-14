@@ -9,6 +9,16 @@
     "/home/chan/Unity/Hub/Editor/6000.1.1f1/Editor/Data/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.unity.animation.rigging@1.3.0": {
+      "name": "com.unity.animation.rigging",
+      "displayName": "Animation Rigging",
+      "resolvedPath": "/home/chan/바탕화면/2025창의체험전/kim/keyeast13/창의체험전/Library/PackageCache/com.unity.animation.rigging@68167b505d2b",
+      "fingerprint": "68167b505d2b550a35f5d5b6daef6193de3c7460",
+      "editorCompatibility": "2022.2.0a9",
+      "version": "1.3.0",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.collab-proxy@2.8.1": {
       "name": "com.unity.collab-proxy",
       "displayName": "Version Control",
@@ -410,6 +420,16 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.burst@1.8.21": {
+      "name": "com.unity.burst",
+      "displayName": "Burst",
+      "resolvedPath": "/home/chan/바탕화면/2025창의체험전/kim/keyeast13/창의체험전/Library/PackageCache/com.unity.burst@59eb6f11d242",
+      "fingerprint": "59eb6f11d2422f95682320d9daa3e79fdb076744",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "1.8.21",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.settings-manager@2.1.0": {
       "name": "com.unity.settings-manager",
       "displayName": "Settings Manager",
@@ -428,6 +448,16 @@
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",
       "source": "builtin",
+      "testable": false
+    },
+    "com.unity.mathematics@1.3.2": {
+      "name": "com.unity.mathematics",
+      "displayName": "Mathematics",
+      "resolvedPath": "/home/chan/바탕화면/2025창의체험전/kim/keyeast13/창의체험전/Library/PackageCache/com.unity.mathematics@8017b507cc74",
+      "fingerprint": "8017b507cc74bf0a1dd14b18aa860569f807314d",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "1.3.2",
+      "source": "registry",
       "testable": false
     }
   }
