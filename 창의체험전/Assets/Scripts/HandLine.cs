@@ -202,8 +202,9 @@ public class HandLines : MonoBehaviour
 
         foreach (var pair in scalePairs)
         {
+            //bone length 계산
             float modelLength = Vector3.Distance(boneTransforms[pair.x].position, boneTransforms[pair.y].position);
-
+            //각 선의 랜드마크 간 거리 계산
             Vector3 a = new Vector3(landmarks[pair.x].x, landmarks[pair.x].y, landmarks[pair.x].z);
             Vector3 b = new Vector3(landmarks[pair.y].x, landmarks[pair.y].y, landmarks[pair.y].z);
             float landmarkLength = Vector3.Distance(a, b);
